@@ -133,6 +133,13 @@ typedef NS_ENUM(NSUInteger, KIFPullToRefreshTiming) {
 - (UIView *)waitForViewWithAccessibilityLabel:(NSString *)label value:(NSString *)value traits:(UIAccessibilityTraits)traits;
 
 /*!
+ @abstract Waits until a view or accessibility identifier is no longer present.
+ @discussion The view or accessibility element with the given label is found in the view hierarchy. If the element is found, then the step will attempt to wait until it isn't. Note that the view does not necessarily have to be visible on the screen, and may be behind another view or offscreen. Views with their hidden property set to YES are considered absent.
+ @param accessibilityIdentifier The accessibility identifier of the element to wait for.
+ */
+- (void)waitForAbsenceOfViewWithAccessibilityIdentifier:(NSString *)accessibilityIdentifier;
+
+/*!
  @abstract Waits until a view or accessibility element is no longer present.
  @discussion The view or accessibility element with the given label is found in the view hierarchy. If the element is found, then the step will attempt to wait until it isn't. Note that the view does not necessarily have to be visible on the screen, and may be behind another view or offscreen. Views with their hidden property set to YES are considered absent.
  @param label The accessibility label of the element to wait for.
